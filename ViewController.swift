@@ -21,21 +21,23 @@ class ViewController: UIViewController {
     
     func countCharactersFullName (name: String) -> Int {
         print("Задание 1")
+        let myName = name
         var charactersNumber = 0
-        charactersNumber = name.count
-        print("Меня зовут \(name), и в моем имени \(charactersNumber) знаков")
+        charactersNumber = myName.count
+        print("Меня зовут \(myName), и в моем имени \(charactersNumber) знаков")
         print("")
         return charactersNumber
     }
     
     func patronymicSuffix (patronymic: String) -> Void {
         print("Задание 2")
-        if patronymic.hasSuffix("ич") {
-            print("Мое отчество \(patronymic) и в нем есть суффикс \"ич\"")
-        } else if patronymic.hasSuffix("на") {
-            print("Мое отчество \(patronymic) и в нем есть суффикс \"на\"")
+        let myPatronymic = patronymic
+        if myPatronymic.hasSuffix("ич") {
+            print("Мое отчество \(myPatronymic) и в нем есть суффикс \"ич\"")
+        } else if myPatronymic.hasSuffix("на") {
+            print("Мое отчество \(myPatronymic) и в нем есть суффикс \"на\"")
         } else {
-            print("Мое отчество \(patronymic) и в нем нет суффиксов \"ич\" или \"на\"")
+            print("Мое отчество \(myPatronymic) и в нем нет суффиксов \"ич\" или \"на\"")
         }
         print("")
     }
