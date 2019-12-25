@@ -19,6 +19,8 @@ class ViewController: UIViewController {
         
         separateName(name: "АлександрСеливерстов")
         
+        mirrorOutput(word: "Ось")
+        
     }
     
     func countCharactersFullName (name: String) -> Int {
@@ -72,6 +74,19 @@ class ViewController: UIViewController {
             print(separateName)
         }
         return separateName
+    }
+    
+    func mirrorOutput (word: String) -> String {
+        print("Задание 4")
+        var mirrorWord = ""
+        var initialWord = word
+        while !initialWord.isEmpty {
+            mirrorWord.append(initialWord.last!)
+            initialWord.removeLast()
+        }
+        print("\(word) -> \(mirrorWord)")
+        print("")
+        return mirrorWord
     }
     
 }
