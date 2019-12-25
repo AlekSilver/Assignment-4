@@ -17,6 +17,8 @@ class ViewController: UIViewController {
         
         patronymicSuffix(patronymic: "Евгеньевич")
         
+        separateName(name: "АлександрСеливерстов")
+        
     }
     
     func countCharactersFullName (name: String) -> Int {
@@ -40,6 +42,36 @@ class ViewController: UIViewController {
             print("Мое отчество \(myPatronymic) и в нем нет суффиксов \"ич\" или \"на\"")
         }
         print("")
+    }
+    
+    func separateName(name: String) -> String {
+        print("Задание 3")
+        var connectedName = name
+        var separateName = ""
+        var firstName = String(connectedName.first ?? " ")
+        var surName = ""
+        connectedName = String(connectedName.dropFirst())
+        for character in connectedName {
+            if character.isLowercase {
+                firstName = firstName + String(character)
+            } else {
+                break
+            }
+        }
+        if firstName != " " {
+            print("str1 = \"\(firstName)\"")
+            print("")
+            surName = String(connectedName.dropFirst((firstName.count - 1)))
+            print("str2 = \"\(surName)\"")
+            print("")
+            separateName = firstName + " " + surName
+            print("str3 = \"\(separateName)\"")
+            print("")
+        } else {
+            separateName = "Исходное Имя не задано"
+            print(separateName)
+        }
+        return separateName
     }
     
 }
