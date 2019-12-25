@@ -15,6 +15,8 @@ class ViewController: UIViewController {
         
         countCharactersFullName(name: "Александр Селиверстов")
         
+        patronymicSuffix(patronymic: "Евгеньевич")
+        
     }
     
     func countCharactersFullName (name: String) -> Int {
@@ -24,6 +26,18 @@ class ViewController: UIViewController {
         print("Меня зовут \(name), и в моем имени \(charactersNumber) знаков")
         print("")
         return charactersNumber
+    }
+    
+    func patronymicSuffix (patronymic: String) -> Void {
+        print("Задание 2")
+        if patronymic.hasSuffix("ич") {
+            print("Мое отчество \(patronymic) и в нем есть суффикс \"ич\"")
+        } else if patronymic.hasSuffix("на") {
+            print("Мое отчество \(patronymic) и в нем есть суффикс \"на\"")
+        } else {
+            print("Мое отчество \(patronymic) и в нем нет суффиксов \"ич\" или \"на\"")
+        }
+        print("")
     }
     
 }
