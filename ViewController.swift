@@ -23,6 +23,8 @@ class ViewController: UIViewController {
         
         decimalSigns(number: 1234567)
         
+        checkPassword(password: "123456qwERty#")
+        
     }
     
     func countCharactersFullName (name: String) -> Int {
@@ -105,6 +107,53 @@ class ViewController: UIViewController {
         print("\(number) -> \(finalNumber)")
         print("")
         return finalNumber
+    }
+    
+    func checkPassword(password: String) -> String {
+        print("Задание 6")
+        let passwordToCheck = password
+        var count = 0
+        var result = ""
+        if !passwordToCheck.isEmpty {
+            for character in passwordToCheck {
+                if character.isNumber {
+                    count += 1
+                    result.append("a)")
+                    break
+                }
+            }
+            for character in passwordToCheck {
+                if character.isUppercase {
+                    count += 1
+                    result.append("b)")
+                    break
+                }
+            }
+            for character in passwordToCheck {
+                if character.isLowercase {
+                    count += 1
+                    result.append("c)")
+                    break
+                }
+            }
+            for character in passwordToCheck {
+                if !character.isNumber && !character.isLowercase && !character.isUppercase {
+                    count += 1
+                    result.append("d)")
+                    break
+                }
+            }
+        } else {
+            print("Пароль не введен")
+        }
+        if count == 4 {
+            count = 5
+            result = "e)"
+        }
+        result = String(count) + " " + result
+        print("\(password) - \(result)")
+        print("")
+        return result
     }
     
 }
