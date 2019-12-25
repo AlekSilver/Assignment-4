@@ -21,6 +21,8 @@ class ViewController: UIViewController {
         
         mirrorOutput(word: "Ось")
         
+        decimalSigns(number: 1234567)
+        
     }
     
     func countCharactersFullName (name: String) -> Int {
@@ -56,9 +58,7 @@ class ViewController: UIViewController {
         for character in connectedName {
             if character.isLowercase {
                 firstName = firstName + String(character)
-            } else {
-                break
-            }
+            } else {break}
         }
         if firstName != " " {
             print("str1 = \"\(firstName)\"")
@@ -87,6 +87,24 @@ class ViewController: UIViewController {
         print("\(word) -> \(mirrorWord)")
         print("")
         return mirrorWord
+    }
+    
+    func decimalSigns(number: Int) -> String {
+        print("Задание 5")
+        var initialNumber = String(number)
+        var finalNumber = ""
+        let count = initialNumber.count
+        for i in 1...count {
+            if (count - i) > 0 {
+                if i % 3 == 0 {
+                    initialNumber.insert(",", at: initialNumber.index(initialNumber.startIndex, offsetBy: (count - i)))
+                }
+            } else {break}
+        }
+        finalNumber = initialNumber
+        print("\(number) -> \(finalNumber)")
+        print("")
+        return finalNumber
     }
     
 }
