@@ -25,6 +25,8 @@ class ViewController: UIViewController {
         
         checkPassword(password: "123456qwERty#")
         
+        sortOfArray(array: [9, 1, 2, 5, 1, 7])
+        
     }
     
     func countCharactersFullName (name: String) -> Int {
@@ -154,6 +156,33 @@ class ViewController: UIViewController {
         print("\(password) - \(result)")
         print("")
         return result
+    }
+    
+    func sortOfArray(array: [Int]) -> [Int] {
+        print("Задание 7")
+        var sortedArray:[Int] = []
+        var count = array.count
+        var arrayToModify = array
+        print("Исходный массив:\(array)")
+        for _ in 0..<count {
+            arrayToModify = [0] + arrayToModify
+            for i in 1..<count {
+                if arrayToModify[i] > arrayToModify[i + 1] {
+                    arrayToModify[0] = arrayToModify[i]
+                    arrayToModify[i] = arrayToModify[i + 1]
+                    arrayToModify[i + 1] = arrayToModify[0]
+                } else if arrayToModify[i] == arrayToModify[i + 1] {
+                    arrayToModify.remove(at: (i))
+                    count = count - 1
+                    break
+                }
+            }
+            arrayToModify.remove(at: 0)
+        }
+        sortedArray = arrayToModify
+        print("Упорядоченный по возрастанию массив без дубликатов: \(sortedArray)")
+        print("")
+        return sortedArray
     }
     
 }
