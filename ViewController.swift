@@ -29,7 +29,9 @@ class ViewController: UIViewController {
                 
         traslitDict(word: "ЯЗЗЬ")
         
-        arrayWithConditions(array: ["lada", "sedan", "baklazhan"])
+        arrayWithConditionsManual(array: ["lada", "sedan", "baklazhan"])
+        
+        arrayWithConditionsSort(array: ["lada", "sedan", "baklazhan"])
         
     }
     
@@ -201,20 +203,29 @@ class ViewController: UIViewController {
         return translitWord
     }
     
-    func arrayWithConditions(array: [String]) -> [String] {
-        print("Задание 9")
-        let initialArray = array
+    func arrayWithConditionsManual(array: [String]) -> [String] {
+        print("Задание 9 (перебор через цикл)")
+//        let initialArray = array
         var sortedArray = [String]()
-        for item in initialArray {
+        for item in array {
             if item.contains("da") {
                 sortedArray = sortedArray + [item]
             }
         }
-        print("В массиве \(initialArray) ищем элементы с сочетанием \"da\"")
+        print("В массиве \(array) ищем элементы с сочетанием \"da\"")
         print("Отсортированный в результате массив -> \(sortedArray)")
         print("")
         return sortedArray
     }
     
+    func arrayWithConditionsSort(array: [String]) -> [String] {
+        print("Задание 9 (сортировка с предикатом)")
+        let sortedArray = array.filter({ $0.contains("da") })
+        print("В массиве \(array) ищем элементы с сочетанием \"da\"")
+        print("Отсортированный в результате массив -> \(sortedArray)")
+        print("")
+        return sortedArray
+    }
+
 }
 
