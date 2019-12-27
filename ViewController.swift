@@ -26,28 +26,28 @@ class ViewController: UIViewController {
         checkPassword(password: "123456qwERty#")
         
         sortOfArray(array: [9, 1, 2, 5, 1, 7])
+                
+        traslitDict(word: "ЯЗЗЬ")
+        
+        arrayWithConditions(array: ["lada", "sedan", "baklazhan"])
         
     }
     
     func countCharactersFullName (name: String) -> Int {
         print("Задание 1")
-        let myName = name
-        var charactersNumber = 0
-        charactersNumber = myName.count
-        print("Меня зовут \(myName), и в моем имени \(charactersNumber) знаков")
+        print("Меня зовут \(name), и в моем имени \(name.count) знаков")
         print("")
-        return charactersNumber
+        return name.count
     }
     
-    func patronymicSuffix (patronymic: String) -> Void {
+    func patronymicSuffix (patronymic: String) {
         print("Задание 2")
-        let myPatronymic = patronymic
-        if myPatronymic.hasSuffix("ич") {
-            print("Мое отчество \(myPatronymic) и в нем есть суффикс \"ич\"")
-        } else if myPatronymic.hasSuffix("на") {
-            print("Мое отчество \(myPatronymic) и в нем есть суффикс \"на\"")
+        if patronymic.hasSuffix("ич") {
+            print("Мое отчество \(patronymic) и в нем есть суффикс \"ич\"")
+        } else if patronymic.hasSuffix("на") {
+            print("Мое отчество \(patronymic) и в нем есть суффикс \"на\"")
         } else {
-            print("Мое отчество \(myPatronymic) и в нем нет суффиксов \"ич\" или \"на\"")
+            print("Мое отчество \(patronymic) и в нем нет суффиксов \"ич\" или \"на\"")
         }
         print("")
     }
@@ -113,32 +113,32 @@ class ViewController: UIViewController {
     
     func checkPassword(password: String) -> String {
         print("Задание 6")
-        let passwordToCheck = password
+        //        let passwordToCheck = password
         var count = 0
         var result = ""
-        if !passwordToCheck.isEmpty {
-            for character in passwordToCheck {
+        if !password.isEmpty {
+            for character in password {
                 if character.isNumber {
                     count += 1
                     result.append("a)")
                     break
                 }
             }
-            for character in passwordToCheck {
+            for character in password {
                 if character.isUppercase {
                     count += 1
                     result.append("b)")
                     break
                 }
             }
-            for character in passwordToCheck {
+            for character in password {
                 if character.isLowercase {
                     count += 1
                     result.append("c)")
                     break
                 }
             }
-            for character in passwordToCheck {
+            for character in password {
                 if !character.isNumber && !character.isLowercase && !character.isUppercase {
                     count += 1
                     result.append("d)")
@@ -181,6 +181,37 @@ class ViewController: UIViewController {
         }
         sortedArray = arrayToModify
         print("Упорядоченный по возрастанию массив без дубликатов: \(sortedArray)")
+        print("")
+        return sortedArray
+    }
+    
+    func traslitDict(word: String) -> String {
+        print("Задание 8")
+        var translitWord = ""
+        let dictionary = ["Я":"YA", "З":"Z", "м":"m", "о":"o", "р":"r", "Д":"D", "а":"a"]
+        for char in word {
+            for member in dictionary.keys {
+                if String(char) == member {
+                    translitWord = translitWord + dictionary[member]!
+                }
+            }
+        }
+        print("Транслитерацией слова \(word) будет -> \(translitWord)")
+        print("")
+        return translitWord
+    }
+    
+    func arrayWithConditions(array: [String]) -> [String] {
+        print("Задание 9")
+        let initialArray = array
+        var sortedArray = [String]()
+        for item in initialArray {
+            if item.contains("da") {
+                sortedArray = sortedArray + [item]
+            }
+        }
+        print("В массиве \(initialArray) ищем элементы с сочетанием \"da\"")
+        print("Отсортированный в результате массив -> \(sortedArray)")
         print("")
         return sortedArray
     }
