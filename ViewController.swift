@@ -26,12 +26,14 @@ class ViewController: UIViewController {
         checkPassword(password: "123456qwERty#")
         
         sortOfArray(array: [9, 1, 2, 5, 1, 7])
-                
+        
         traslitDict(word: "ЯЗЗЬ")
         
         arrayWithConditionsManual(array: ["lada", "sedan", "baklazhan"])
         
         arrayWithConditionsSort(array: ["lada", "sedan", "baklazhan"])
+        
+        antiMat(text: "how fuck read fak so fak not suka or blat at all")
         
     }
     
@@ -224,6 +226,21 @@ class ViewController: UIViewController {
         print("")
         return sortedArray
     }
-
+    
+    func antiMat(text: String) -> String {
+        print("Задание 10")
+        var goodText = text
+        let antimat: Set<String> = ["fuck", "fak", "suka", "blat"]
+        for badWord in antimat {
+            if text.contains(badWord) {
+                goodText = goodText.replacingOccurrences(of: badWord, with: "***")
+            }
+        }
+        print("Плохой текст: \n \(text)")
+        print("Хороший текст: \n \(goodText)")
+        print("")
+        return goodText
+    }
+    
 }
 
