@@ -115,7 +115,6 @@ class ViewController: UIViewController {
     
     func checkPassword(password: String) -> String {
         print("Задание 6")
-        //        let passwordToCheck = password
         var count = 0
         var result = ""
         if !password.isEmpty {
@@ -205,7 +204,6 @@ class ViewController: UIViewController {
     
     func arrayWithConditionsManual(array: [String]) -> [String] {
         print("Задание 9 (перебор через цикл)")
-//        let initialArray = array
         var sortedArray = [String]()
         for item in array {
             if item.contains("da") {
